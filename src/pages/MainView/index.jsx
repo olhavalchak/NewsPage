@@ -6,13 +6,10 @@ import { api } from "../../api";
 export const MainView = () => {
   const key = useSelector(selectKey);
   const [news, setNews] = useState([])
-  console.log(key);
   useEffect(() => {
     api.getNews(`619aeec4f8554b30bc1452282936f7ee`)
       .then((result) => {
         setNews(result.articles);
-        console.log(result.articles);
-        console.log(news);
       });
   }, [key]);
   return (
