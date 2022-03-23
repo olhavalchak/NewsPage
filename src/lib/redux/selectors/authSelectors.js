@@ -1,1 +1,1 @@
-export const selectKey = (state) => state.auth.profile.key;
+export const selectUserInfo = (state) => state.auth.profile;

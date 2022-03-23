@@ -11,7 +11,6 @@ export const Login = () => {
     key: '',
   });
   useEffect(() => {
-    console.log(!!userInfo.email && !!userInfo.key) ;
     setIsButtonDisabled(!!userInfo.email && !!userInfo.key);
   },[userInfo] );
   const onChange = (event) => {
@@ -19,8 +18,8 @@ export const Login = () => {
     setUserInfo({ ...userInfo, [name]: value });
   };
   const handleSubmit = () => {
-    console.log(userInfo);
     dispatch(authActions.fillUserProfile(userInfo));
+    localStorage.setItem('key', userInfo.key);
   };
   return (
     <div className="login-container">
